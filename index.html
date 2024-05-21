@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- meta -->
+
+  <!-- icons -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <title>Js Project Dynamicflow</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media.css">
+</head>
+
+<body class="light-mode">
+  <!-- header start  -->
+
+  <header class="">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid px-0">
+          <a class="navbar-brand logo " href="index.html"><img src="images/Nasir Ahmed.png" alt=""></a>
+          <button class="navbar-toggler navt" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
+            <ul id="myDIV" class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active home" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#form">Form</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+            <button class="btn btn-primary " id="modeToggleBtn">Dark/light Mode</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- header end -->
+
+  <!-- banner section start  -->
+
+  <section class="banner">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- banner img  -->
+
+        <div class=" col-lg-5 order-lg-1 order-2">
+          <div class="b_text">
+
+            <h1>Seamless Run,
+              <span> Infinite Creativity</span>
+            </h1>
+            <p class="b_p2 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius blandit facilisis quam
+              netus.</p>
+            <button type="submit" class="btn btn-primary mt-4">Get Started</button>
+          </div>
+        </div>
+
+        <!-- banner text  -->
+        <div class=" offset-lg-1 col-lg-6 order-lg-2 order-1">
+          <div class="b_img">
+            <img src="images/Frame.png" class="img-fluid" alt="E-School">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- banner section end  -->
+
+  <!-- form section start  -->
+  <section class="form" id="form">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <!-- Form -->
+          <form id="myForm">
+            <label class="label-c" for="name">Name:</label>
+            <input class="mb-3  input-d" type="text" id="name" name="name"><br>
+            <div id="nameError" class="error"></div>
+
+            <label class="label-c" for="email">Email:</label>
+            <input class="mb-3  input-d" type="email" id="email" name="email"><br>
+            <div id="emailError" class="error"></div>
+
+            <label class="label-c" for="phone">Phone:</label>
+            <input class="mb-3 input-d " type="tel" id="phone" name="phone"><br>
+            <div id="phoneError" class="error"></div>
+
+            <label class="label-c " for="message">Message:</label>
+            <div class="messege">
+              <textarea class="mb-3 input-d label-d" id="message" name="message" rows="4"></textarea><br>
+            </div>
+            <div id="messageError" class="error"></div>
+
+
+            <h3>Choose Gender</h3>
+
+              <div id="malefemalecontainer">
+                <label>male <input type="radio" name="gender" value="m"></label> 
+                <label>female <input type="radio" name="gender" value="f"></label>
+              </div>
+              <div id="divwife" hidden>
+                wife: 
+                <label>alive <input type="radio" name="wife" value="true"></label>
+                <label>dead <input type="radio" name="wife" value="false" checked="checked"></label>
+              </div>
+              <div id="divhus" hidden>
+                husband: 
+                <label>alive <input type="radio" name="husband" value="true"></label>
+                <label>dead <input type="radio" name="husband" value="false" checked="checked"></label>
+              </div>
+
+            
+<form id="genderForm">
+  <label>
+    <input type="radio" name="gender" value="male" onclick="showForm()"> Male
+  </label>
+  <label>
+    <input type="radio" name="gender" value="female" onclick="showForm()"> Female
+  </label>
+
+  <div id="additionalInfo" class="hidden">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <input type="submit" value="Submit">
+  </div>
+</form>
+
+<div id="output" class="hidden">
+  <h2>Submitted Information:</h2>
+  <p id="outputName"></p>
+  <p id="outputEmail"></p>
+  <p id="outputGender"></p>
+</div>
+
+             
+
+
+            <button type="button" class="btn btn-primary mt-4" onclick="submitForm()">Submit</button>
+          </form>
+
+          <!-- Display submitted data -->
+          <div id="submittedData"></div>
+        </div>
+        <div class="offset-lg-1 col-lg-5">
+          <div class="">
+            <div class="btwo_text">
+              <img src="images/5.png" alt="">
+              <h2 id="ourActivity">Our Activity</h2>
+              <p id="ourActivity2">"The only way to do great work is to love what you do. If you haven't found it yet,
+                keep looking. Don't settle. The difference between ordinary and extraordinary is that little extra.
+                Don't be afraid to give up the good to go for the great."</p>
+              <a href="#">Learn More <img class="arrow_two" src="images/icon r.png" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- form section end -->
+
+  <!-- ajax start  -->
+
+  <!-- newsletter start  -->
+  <section class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="n_text">
+            <h6>Ajax Part </h6>
+            <h3 id="ourActivity3">JOIN US</h3>
+            <p id="ourActivity4">Problems trying to resolve the conflict between
+              the two major <br>realms of Classical physics: Newtonian mechanics </p>
+          </div>
+          <!-- ajax end -->
+
+          <!-- footer start  -->
+          <footer class="mt-5 py-3 text-light text-center bg ">
+            <p class="nasir mb-0" id="modeJ">&copy; 2024 Developed by <span class="footer_n" id="modeK"> Nasir
+                Ahmed</span></p>
+
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Go Top</button>
+
+          </footer>
+
+
+          <!-- footer end  -->
+
+          <!-- js links -->
+          <script src="js/bootstrap.bundle.min.js"></script>
+          <script src="js/script.js"></script>
+</body>
+
+</html>

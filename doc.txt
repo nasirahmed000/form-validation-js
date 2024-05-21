@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        /* Add some basic styling for better presentation */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Add styling for error messages */
+        .error {
+            color: red;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Form Validation</h2>
+
+    <!-- Form -->
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <div id="nameError" class="error"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <div id="emailError" class="error"></div>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <div id="phoneError" class="error"></div>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <div id="messageError" class="error"></div>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+    <!-- Display submitted data -->
+    <div id="submittedData"></div>
+
+    <script>
+        function validateForm() {
+            // Reset previous error messages
+            document.querySelectorAll('.error').forEach(function (element) {
+                element.innerHTML = '';
+            });
+
+            // Get form values
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var message = document.getElementById('message').value;
+
+            // Validate each field
+            var isValid = true;
+
+            if (name.trim() === '') {
+                document.getElementById('nameError').innerHTML = 'Name is required';
+                isValid = false;
+            }
+
+            if (email.trim() === '' || !isValidEmail(email)) {
+                document.getElementById('emailError').innerHTML = 'Valid email is required';
+                isValid = false;
+            }
+
+            if (phone.trim() === '' || !isValidPhone(phone)) {
+                document.getElementById('phoneError').innerHTML = 'Valid phone number is required';
+                isValid = false;
+            }
+
+            if (message.trim() === '') {
+                document.getElementById('messageError').innerHTML = 'Message is required';
+                isValid = false;
+            }
+
+            // If all fields are valid, submit the form
+            if (isValid) {
+                submitForm();
+            }
+        }
+
+        function isValidEmail(email) {
+            // Simple email validation, you may want to use a more robust method
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidPhone(phone) {
+            // Simple phone validation, you may want to use a more robust method
+            var phoneRegex = /^\d{10}$/;
+            return phoneRegex.test(phone);
+        }
+
+        function submitForm() {
+            // Get form values
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var message = document.getElementById('message').value;
+
+            // Display submitted data
+            var submittedDataDiv = document.getElementById('submittedData');
+            submittedDataDiv.innerHTML = `
+                <h3>Submitted Data:</h3>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Message:</strong> ${message}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

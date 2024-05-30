@@ -69,3 +69,16 @@ try {
 } catch (error) {
     console.error(error.message);
 }
+
+// 8. console.table 
+
+// an object whose properties are strings
+
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const me = new Person("Tyrone", "Jones");
+
+console.table(me);
